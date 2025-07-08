@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>レビュー投稿ページ</title>
+</head>
+<body>
+    <h1>レビュー投稿ページ</h1>
+    <form th:action="@{/houses/{houseId}/reviews(post)}" th:object="${reviewForm}" method="post">
+        <input type="hidden" th:value="${houseId}" name="houseId" />
+        
+        <div>
+            <label for="rating">評価:</label>
+            <input type="number" id="rating" th:field="*{rating}" min="1" max="5" required />
+        </div>
+
+        <div>
+            <label for="review">コメント:</label>
+            <textarea id="review" th:field="*{review}"></textarea>
+        </div>
+        
+        <button type="submit">投稿</button>
+    </form>
+</body>
+</html>
