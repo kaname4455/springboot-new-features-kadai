@@ -10,7 +10,7 @@ import com.example.samuraitravel.form.ReviewForm;
 @Controller
 public class ReviewController {
 
-    @GetMapping
+    @GetMapping("/reviews")
     public String showReviewList(Model model) {
         // レビュー一覧表示用
         return "reviewList";
