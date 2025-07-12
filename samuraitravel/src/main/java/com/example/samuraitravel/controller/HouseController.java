@@ -79,4 +79,12 @@ public class HouseController {
         return "houses/show";
     }   
     
+	@GetMapping("/")
+	public String review(Model model) {
+        List<Review> newReview = ReviewRepository.findTop6ByOrderByCreatedAtDesc();
+        model.addAttribute("house", house);  
+        model.addAttribute("newReview", newReview);    
+        return "show";
+    }   
+    
 }
