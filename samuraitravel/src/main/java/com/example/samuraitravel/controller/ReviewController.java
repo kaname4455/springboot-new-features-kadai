@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.samuraitravel.form.ReviewForm;
 
+import java.util.List;
+
 @Controller
 public class ReviewController {
 
@@ -22,12 +24,10 @@ public class ReviewController {
         return "houses/reviewForm";
     
     }
-    @GetMapping("/")
+    @GetMapping("/houses/{houseId}/show")
     public String show() {
     public String show(Model model) {
-        List<review> newReview = HousereviewRepository.findTop6ByOrderByCreatedAtDesc();
         model.addAttribute("newReview", newReview);        
-        
-        return "show";
+        return "houses/show";
     }   
 }
