@@ -22,5 +22,12 @@ public class ReviewController {
         return "houses/reviewForm";
     
     }
-
+    @GetMapping("/")
+    public String show() {
+    public String show(Model model) {
+        List<review> newReview = HousereviewRepository.findTop6ByOrderByCreatedAtDesc();
+        model.addAttribute("newReview", newReview);        
+        
+        return "show";
+    }   
 }
