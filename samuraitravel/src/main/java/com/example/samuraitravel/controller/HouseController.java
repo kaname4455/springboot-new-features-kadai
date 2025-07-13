@@ -22,10 +22,9 @@ public class HouseController {
     private final ReviewRepository reviewRepository; 
     
     public HouseController(HouseRepository houseRepository,ReviewRepository reviewRepository) {
-        this.houseRepository = houseRepository;         {
+        this.houseRepository = houseRepository;         
         this.reviewRepository = reviewRepository;            
-       }   
-    }     
+       }        
   
     @GetMapping
     public String index(@RequestParam(name = "keyword", required = false) String keyword,
