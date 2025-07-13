@@ -73,18 +73,21 @@ public class HouseController {
     public String show(@PathVariable(name = "id") Integer id, Model model) {
         House house = houseRepository.getReferenceById(id);
         
-        model.addAttribute("house", house);         
+        model.addAttribute("house", house);     
         model.addAttribute("reservationInputForm", new ReservationInputForm());
+        
+        List<Review> newReview = reviewRepository.findTop6ByOrderByCreatedAtDesc();
+        System.out.println("review-count:" + newReview.size());
         
         return "houses/show";
     }   
     
-	@GetMapping("/")
-	public String review(Model model) {
-        List<Review> newReview = ReviewRepository.findTop6ByOrderByCreatedAtDesc();
-        model.addAttribute("house", house);  
-        model.addAttribute("newReview", newReview);    
-        return "show";
-    }   
+    public class HouseController {
+        private final ReviewRepository reviewRepository;        
+        
+        public HouseController(ReviewRepository reviewRepository) {
+            this.reviewRepository = reviewRepository;            
+        }    
     
-}
+    } 
+    
