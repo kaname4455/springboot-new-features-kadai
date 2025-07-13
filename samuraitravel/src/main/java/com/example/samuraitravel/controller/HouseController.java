@@ -18,10 +18,13 @@ import com.example.samuraitravel.repository.HouseRepository;
 @Controller
 @RequestMapping("/houses")
 public class HouseController {
-    private final HouseRepository houseRepository;        
+    private final HouseRepository houseRepository;  
+    private final ReviewRepository reviewRepository; 
     
-    public HouseController(HouseRepository houseRepository) {
-        this.houseRepository = houseRepository;            
+    public HouseController(HouseRepository houseRepository,ReviewRepository reviewRepository) {
+        this.houseRepository = houseRepository;         {
+        this.reviewRepository = reviewRepository;            
+       }   
     }     
   
     @GetMapping
@@ -82,13 +85,6 @@ public class HouseController {
         return "houses/show";
     }   
     
-    public class HouseController {
-        private final ReviewRepository reviewRepository;        
-        
-        public HouseController(ReviewRepository reviewRepository) {
-            this.reviewRepository = reviewRepository;            
-        }    
+
     
     } 
-
-} 
