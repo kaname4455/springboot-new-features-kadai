@@ -1,5 +1,7 @@
 package com.example.samuraitravel.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -15,7 +17,6 @@ import com.example.samuraitravel.entity.House;
 import com.example.samuraitravel.form.ReservationInputForm;
 import com.example.samuraitravel.repository.HouseRepository;
 import com.example.samuraitravel.repository.ReviewRepository;
-import com.stripe.model.Review;
 
 @Controller
 @RequestMapping("/houses")
