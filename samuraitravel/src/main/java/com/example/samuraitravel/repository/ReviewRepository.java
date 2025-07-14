@@ -9,12 +9,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.samuraitravel.entity.Review;
 
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
-	public Page<Review> findByNameLike(String keyword, Pageable pageable);
-	
-    public Page<Review> findByNameLikeOrAddressLikeOrderByCreatedAtDesc(String nameKeyword, String addressKeyword, Pageable pageable);  
-    public Page<Review> findByNameLikeOrAddressLikeOrderByPriceAsc(String nameKeyword, String addressKeyword, Pageable pageable);  
-    public Page<Review> findByAddressLikeOrderByCreatedAtDesc(String area, Pageable pageable);
-    public Page<Review> findByAddressLikeOrderByPriceAsc(String area, Pageable pageable);
+
+    // 宿ごとのレビューを取得
+    public Page<Review> findByInnIdOrderByCreatedAtDesc(Integer innId, Pageable pageable);
+    
+    // 他のメソッド
+    public Page<Review> findByNameLike(String keyword, Pageable pageable);
     public Page<Review> findByPriceLessThanEqualOrderByCreatedAtDesc(Integer price, Pageable pageable);
     public Page<Review> findByPriceLessThanEqualOrderByPriceAsc(Integer price, Pageable pageable); 
     public Page<Review> findAllByOrderByCreatedAtDesc(Pageable pageable);
