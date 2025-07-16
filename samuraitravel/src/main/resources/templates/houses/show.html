@@ -3,7 +3,7 @@
            <!-- Flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
      
-   <title>民宿詳細</title>  
+   <title>民宿詳細</title>   
 
        <main>
            <div class="container pt-4 pb-5 samuraitravel-container">
@@ -144,6 +144,27 @@
                                         <a th:href="@{/houses/__${house.getId()}__/reviews/register}" class="btn text-white shadow-sm w-100 samuraitravel-btn">レビューを投稿する</a>
                                     </div>
                                 </div>
+                                    <!-- レビューリスト -->
+                                 <div class="row">
+                                 <div class="col">
+                                 <div class="list-group">
+                                 <div th:each="review : ${reviews}" class="list-group-item mb-3">
+                                     <h5 th:text="${review.author}"></h5>
+                                  <div>
+                                      <span th:each="star : ${#numbers.sequence(1, 5)}" th:text="${star <= review.rating ? '★' : '☆'}"></span>
+                                 </div>
+                                        <p th:text="${review.content}"></p>
+                                       <small th:text="${#dates.format(review.date, 'yyyy-MM-dd')}"></small>
+                                </div>
+                               </div>
+                              </div>
+                             </div>
+    
+                               <!-- 全てのレビューを見るリンク -->
+                                <div class="text-center mt-4">
+                                 <a th:href="@{/houses/__${house.getId()}__/reviews}" class="text-secondary">すべてのレビューを見る</a>
+                                </div>
+                               </div>                          
                             </div>                              
                         </div>
                     </div>
