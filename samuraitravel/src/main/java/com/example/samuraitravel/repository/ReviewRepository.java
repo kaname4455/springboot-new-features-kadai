@@ -11,14 +11,7 @@ import com.example.samuraitravel.entity.Review;
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
 
     // 宿ごとのレビューを取得
-    public Page<Review> findByInnIdOrderByCreatedAtDesc(Integer innId, Pageable pageable);
-    
-    // 他のメソッド
-    public Page<Review> findByNameLike(String keyword, Pageable pageable);
-    public Page<Review> findByPriceLessThanEqualOrderByCreatedAtDesc(Integer price, Pageable pageable);
-    public Page<Review> findByPriceLessThanEqualOrderByPriceAsc(Integer price, Pageable pageable); 
-    public Page<Review> findAllByOrderByCreatedAtDesc(Pageable pageable);
-    public Page<Review> findAllByOrderByPriceAsc(Pageable pageable);  
+    public Page<Review> findByInnIdOrderByCreatedAtDesc(Integer houseId, Pageable pageable);
     
     public List<Review> findTop6ByOrderByCreatedAtDesc();
 }
