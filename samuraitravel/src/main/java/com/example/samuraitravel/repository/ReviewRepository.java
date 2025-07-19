@@ -9,9 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.samuraitravel.entity.Review;
 
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
-
-    // 宿ごとのレビューを取得
-    public Page<Review> findByInnIdOrderByCreatedAtDesc(Integer houseId, Pageable pageable);
-    
-    public List<Review> findTop6ByOrderByCreatedAtDesc();
+	   public List<Review> findTop6ByHouseOrderByCreatedAtDesc(House house);
 }
