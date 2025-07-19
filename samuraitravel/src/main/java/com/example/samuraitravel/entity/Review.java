@@ -20,14 +20,14 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
+    
     @ManyToOne
     @JoinColumn(name = "house_id", insertable = false, updatable = false)
-    private House houseEntity;
+    private House house;
 
     @ManyToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private User userEntity;
+    private User user;
 
     private Integer reviewStar;
 
