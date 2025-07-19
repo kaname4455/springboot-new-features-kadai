@@ -82,7 +82,7 @@ public class HouseController {
         model.addAttribute("house", house);     
         model.addAttribute("reservationInputForm", new ReservationInputForm());
         
-        List<Review> newReview = reviewRepository.findTop6ByHouseOrderByCreatedAtDesc();
+        List<Review> newReview = reviewRepository.findTop6ByHouseOrderByCreatedAtDesc(house);
         System.out.println("review-count:" + newReview.size());
         
         return "houses/show";
