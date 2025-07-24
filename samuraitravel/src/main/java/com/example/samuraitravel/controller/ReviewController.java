@@ -16,6 +16,12 @@ public class ReviewController {
         // レビュー一覧表示用
         return "reviewList";
     }
+    
+    @GetMapping("@{/houses/__${houseId}__/reviews")
+    public String houseReview(Model model, String houseId) {
+        return "reviewrist";
+        
+    } 
 
     @GetMapping("/houses/reviewForm")
     public String newReview(@PathVariable House house, Model model) {
